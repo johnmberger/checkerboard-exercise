@@ -3,22 +3,20 @@ function removeMargin() {
 }
 removeMargin();
 
-function redBox() {
-  var redDiv = document.createElement('div');
-  redDiv.style = 'background-color:red; width:11.1%; padding-bottom:11.1%; float:left';
-  document.body.appendChild(redDiv);
+function getRandomColor() {
+  var letters = '0123456789ABCDEF'.split('');
+  var rColor = '#';
+  for (var i = 0; i < 6; i++) {
+    rColor += letters[Math.floor(Math.random() * 16)];
+  } return rColor;
 }
 
-function blackBox() {
-  var blackDiv = document.createElement('div');
-  blackDiv.style = 'background-color:black; width:11.1%; padding-bottom:11.1%; float:left';
-  document.body.appendChild(blackDiv);
+function coloredBox() {
+  var colorBox = document.createElement('div');
+  colorBox.style = 'background-color:' + getRandomColor() + '; width:11.1%; padding-bottom:11.1%; float:left';
+  document.body.appendChild(colorBox);
 }
 
 for (var i = 1; i < 127; i++) {
-  if (i % 2 === 0) {
-    redBox();
-  } else {
-    blackBox();
-  }
+  coloredBox();
 }
